@@ -40,21 +40,21 @@ def process_velocity_profile(data_file, calib_k, calib_b, is_0txt=False, rho=1.2
     positions_m = positions_mm / 1000
 
     velocities = np.sqrt(2 * pressures_sym / rho)
-    velocities -= 1
+    velocities -= 9
 
     return positions_mm, velocities, positions_m
 
 
 def calculate_flow_rate(positions_m, velocities, positions_mm, distance_mm):
     thresholds = {
-        0: 10.0,
-        10: 10.0,
-        20: 10.0,
-        30: 10.7,
-        40: 10.0,
-        50: 10.0,
-        60: 10.4,
-        70: 9.6
+        0: 1.0,
+        10: 1.0,
+        20: 1.0,
+        30: 1.7,
+        40: 0.3,
+        50: 0.7,
+        60: 2.0,
+        70: 0.0
     }
 
     threshold = thresholds.get(distance_mm, 10.0)
